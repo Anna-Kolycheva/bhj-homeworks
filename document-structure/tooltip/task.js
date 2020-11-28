@@ -10,7 +10,11 @@ hasTooltip.forEach(element => {
 })
 
 function showTooltip(event) {
-    tooltip.classList.toggle('tooltip_active');
+    tooltip.classList.add('tooltip_active');
+    if (tooltip.innerText === event.target.title) {
+        tooltip.classList.remove('tooltip_active');
+        return;
+    }
     let position = event.target.getBoundingClientRect();
     tooltip.style.top = position.top + 20 + "px";
     tooltip.style.left = position.left + "px";

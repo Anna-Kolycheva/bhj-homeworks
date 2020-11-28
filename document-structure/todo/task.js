@@ -9,27 +9,22 @@ tasksAdd.addEventListener('click', (event) => {
 
 taskInput.addEventListener('keyup', (event) => {
     event.preventDefault();
-    console.log(event.key);
     if (event.key === 'Enter' && taskInput.value !== '') {
         mewTask();
     }
 })
 
 function mewTask() {
-    console.log(tasksList);
-    tasksList.innerHTML += `
-      <div class="task">
+    tasksList.insertAdjacentHTML('beforeend',
+        `<div class="task">
         <div class="task__title">
           ${taskInput.value}
         </div>
         <a href="#" class="task__remove">&times;</a>
-      </div>`;
+      </div>`);
     taskInput.value = '';
 
-    const taskRemove = Array.from(document.querySelectorAll('.task__remove'));
-    taskRemove.forEach(element => {
-        element.addEventListener('click', (event) => {
+    tasksList.lastChild.addEventListener('click', (event) => {
             event.target.parentElement.remove();
         })
-    })
 }
