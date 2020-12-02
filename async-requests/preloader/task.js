@@ -3,7 +3,7 @@
 let loader = document.getElementById('loader');
 let items = document.getElementById('items');
 let xhr = new XMLHttpRequest();
-Storage.clear()
+
 xhr.open('GET', 'https://netology-slow-rest.herokuapp.com/');
 xhr.send();
 
