@@ -7,16 +7,12 @@ const getCookie = (name) => {
     const value = "; " + document.cookie;
     let parts = value.split("; " + name + "=");
     if (parts.length === 2) {
-        return parts
-            .pop()
-            .split(";")
-            .shift();
+        return parts.pop().split(";").shift();
     }
 }
 
-if (getCookie('modalClosed' !== true)) {
-    modal.classList.add('modal_active');
-    console.log(getCookie('modalClosed'));
+if (getCookie('modalClosed') !== 'true') {
+     modal.classList.add('modal_active');
 }
 
 close.onclick = () => {
