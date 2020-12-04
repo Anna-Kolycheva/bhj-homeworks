@@ -7,12 +7,9 @@ textArea.addEventListener('keyup', event => {
 	localStorage.setItem('text', textArea.value);
 })
 
-if (localStorage.text !== undefined) {
-	textArea.value = localStorage.text;
-}
-
+textArea.value = localStorage.getItem('text');
 
 clear.addEventListener('click', event => {
-	localStorage.clear();
+	localStorage.removeItem('text');
 	textArea.value = '';
 })
